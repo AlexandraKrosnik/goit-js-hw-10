@@ -10,7 +10,9 @@ const DEBOUNCE_DELAY = 300;
 ref.searchBox.addEventListener("input", debounce(inputCountry, DEBOUNCE_DELAY))
 
 function inputCountry(e) {    
-    let name = e.target.value.trim();    
+    let name = e.target.value.trim();
+    resetList();
+    resetCard();
     if (name != "" && name != " ") {
         fetchCountries(name).then(data => {
             if (data.length > 10) {
